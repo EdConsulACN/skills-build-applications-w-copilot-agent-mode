@@ -1,0 +1,145 @@
+
+.App {
+  text-align: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  min-height: 100vh;
+}
+
+
+.App-logo {
+  height: 60px;
+  pointer-events: none;
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+.App-header {
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #fff;
+}
+
+
+.App-link {
+  color: #6366f1;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.App-link:hover {
+  color: #2563eb;
+}
+
+/* Table Styling */
+table.table {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+}
+thead.table-dark {
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  color: #fff;
+}
+tbody tr {
+  background: #f3f4f6;
+}
+tbody tr:nth-child(even) {
+  background: #e0e7ff;
+}
+
+/* Button Styling */
+.btn-primary, .btn-success, .btn-info, .btn-warning, .btn-danger {
+  border-radius: 20px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+}
+.btn-primary {
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  border: none;
+}
+.btn-success {
+  background: linear-gradient(90deg, #22c55e 0%, #4ade80 100%);
+  border: none;
+}
+.btn-info {
+  background: linear-gradient(90deg, #06b6d4 0%, #0ea5e9 100%);
+  border: none;
+}
+.btn-warning {
+  background: linear-gradient(90deg, #f59e42 0%, #fbbf24 100%);
+  border: none;
+}
+.btn-danger {
+  background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+  border: none;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #6366f1;
+  font-weight: 700;
+}
+h2.text-success {
+  color: #22c55e !important;
+}
+h2.text-info {
+  color: #06b6d4 !important;
+}
+h2.text-warning {
+  color: #f59e42 !important;
+}
+h2.text-danger {
+  color: #ef4444 !important;
+}
+
+/* Navigation */
+.navbar {
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+}
+.navbar-brand {
+  color: #fff !important;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  margin-right: 10px;
+  transition: color 0.2s;
+}
+.navbar-nav .nav-link:hover {
+  color: #e0e7ff !important;
+}
+
+/* Card Styling */
+.card {
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.12);
+  background: #fff;
+}
+
+/* Favicon and logo styles will be handled in public/index.html and src/App.js */
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
