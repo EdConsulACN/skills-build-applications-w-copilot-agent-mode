@@ -15,12 +15,24 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, reverse
 from rest_framework import routers
-from .views import UserViewSet, TeamViewSet, ActivityViewSet, LeaderboardViewSet, WorkoutViewSet
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.reverse import reverse
+from .views import UserViewSet, TeamViewSet, ActivityViewSet, LeaderboardViewSet, WorkoutViewSet
+import os
+
+def api_root(request):
+    codespace_name = os.environ.get('CODESPACE_NAME', 'localhost')
+    base_url = f'https://{codespace_name}-8000.app.github.dev' if codespace_name != 'localhost' else 'http://localhost:8000'
+    return JsonResponse({
+        'activities': f'{base_url}/api/activities/',
+        'teams': f'{base_url}/api/teams/',
+        'users': f'{base_url}/api/users/',
+        'leaderboard': f'{base_url}/api/leaderboard/',
+        'workouts': f'{base_url}/api/workouts/',
+    })
+
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -41,6 +53,8 @@ def api_root(request, format=None):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', api_root),
     path('api/', include(router.urls)),
+    path('', api_root, name='api-root'),
     path('', api_root, name='api-root'),
 ]

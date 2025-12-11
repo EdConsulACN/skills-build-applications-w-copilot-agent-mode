@@ -8,6 +8,7 @@ class User(models.Model):
         db_table = 'users'
 
 class Team(models.Model):
+    id = models.ObjectIdField(primary_key=True, editable=False)
     name = models.CharField(max_length=50, unique=True)
     members = models.JSONField(default=list)
     class Meta:

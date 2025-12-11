@@ -13,8 +13,10 @@ class Command(BaseCommand):
         Workout.objects.all().delete()
 
         # Create teams
-        marvel = Team.objects.create(name='marvel', members=[])
-        dc = Team.objects.create(name='dc', members=[])
+        marvel = Team(name='marvel', members=[])
+        marvel.save()
+        dc = Team(name='dc', members=[])
+        dc.save()
 
         # Create users
         users = [
@@ -25,10 +27,9 @@ class Command(BaseCommand):
         ]
         for user in users:
             user.save()
-            if user.team == 'marvel':
-                marvel.members.append(user.email)
-            else:
-                dc.members.append(user.email)
+        # Assign members to teams
+        marvel.members = [u.email for u in users if u.team == 'marvel']
+        dc.members = [u.email for u in users if u.team == 'dc']
         marvel.save()
         dc.save()
 
